@@ -21,5 +21,29 @@ class BillingTest  extends FunSuite {
     assert(Billing(List("Coffee", "Cheese_Sandwich", "Cola")).total == 3.5)
   }
 
+  test("Bill some more items ") {
+    assert(Billing(List("Coffee", "Cheese_Sandwich", "Cola")).getTotal == 4.20)
 
+    assert(Billing(List("Coffee",  "Cola")).getTotal == 1.50)
+
+    assert(Billing(List("Cheese_Sandwich",  "Cola")).getTotal == 2.75)
+
+    assert(Billing(List("Coffee", "Cheese_Sandwich", "Cola",
+      "Coffee", "Cheese_Sandwich", "Cola","steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+    "Coffee", "Cheese_Sandwich", "Cola","steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+    "Coffee", "Cheese_Sandwich", "Cola","steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+    "Coffee", "Cheese_Sandwich", "Cola","steak_sandwich","steak_sandwich","steak_sandwich",
+      "Coffee", "Cheese_Sandwich", "Cola")).getTotal == 106.20)
+
+    assert(Billing(List("steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich",
+      "steak_sandwich","steak_sandwich","steak_sandwich","steak_sandwich" )).getTotal == 182.00)
+
+  }
 }
